@@ -1,0 +1,18 @@
+.task-item {
+  display: flex;
+  gap: 10px;
+  max-width: 600px;
+  justify-content: space-around;
+  align-items: center;
+}
+.task-item__left {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.task-item__button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  background-color: #353333fc;
+}
+
+ul,
+li {
+  list-style: none;
+}
+.todo {
+  width: 600px;
+  min-height: 732px;
+  border-radius: 20px;
+  background: #fff;
+  margin: 0 auto;
+  margin-top: 174px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 44px;
+  padding-bottom: 30px;
+  margin-bottom: 100px;
+}
+.todo-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}

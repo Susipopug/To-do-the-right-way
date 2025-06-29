@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+.task-input {
+  border-radius: 50px;
+  height: 50px;
+  width: 400px;
+  border: none;
+  background-color: antiquewhite;
+  padding-left: 30px;
+}
+
+.task-input__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -80px;
+  width: 80px;
+  border-radius: 50px;
+  border: none;
+  background-color: coral;
+  cursor: pointer;
+}
