@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { TaskInput } from "./TaskInput/TaskInput";
-import { TaskList } from "./TaskList/TaskList";
+import { TaskInput } from "@components/TaskInput/TaskInput";
+import { TaskList } from "@components/TaskList/TaskList";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./TaskItem.css";
-import checked from "../assets/checkmark.png";
-import not_checked from "../assets/check-box.png";
-import close_button from "../assets/delete.png";
+import checked from "@assets/checkmark.png";
+import not_checked from "@assets/check-box.png";
+import close_button from "@assets/delete.png";
 
 export const TaskItem = ({ task, onDelete, setTasks }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editedText, setEditedText] = useState("");
+  const [editedText, setEditedText] = useState(task.text);
 
   const toggleChecked = (id) => {
     let data = JSON.parse(localStorage.getItem("tasks"));
@@ -17,10 +17,7 @@ export const TaskItem = ({ task, onDelete, setTasks }) => {
         } else {
           data[i].display = "";
         }
-        if (editedText) {
-          data[i].text = editedText;
-        }
-        data[i].text = task.text;
+
         break;
       }
     }
@@ -52,11 +49,13 @@ export const TaskItem = ({ task, onDelete, setTasks }) => {
     localStorage.setItem("tasks", JSON.stringify(data));
   };
 
-  const handleKeyDown = (event) => {
+  const handlePressEnter = (event) => {
     if (event.key === "Enter") {
       handleBlur();
     }
   };
+
+  const [time, setTime] = useState(0);
 
   return (
     <li className="task-item">
@@ -78,7 +77,7 @@ export const TaskItem = ({ task, onDelete, setTasks }) => {
             value={editedText}
             onChange={handleChange}
             onBlur={handleBlur}
-            onKeyDown={handleKeyDown}
+            onKeyDown={handlePressEnter}
             autoFocus
           />
         ) : (
@@ -92,6 +91,8 @@ export const TaskItem = ({ task, onDelete, setTasks }) => {
           <img width={40} height={40} src={close_button} alt="close_button" />
         </button>
       )}
+
+      <button>{time}</button>
     </li>
   );
 };
