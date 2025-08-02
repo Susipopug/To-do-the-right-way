@@ -1,22 +1,33 @@
 import "./TaskInput.css";
+import { useTodoContext } from "../../context/ToDoContext";
+import { useState } from "react";
 
-export const TaskInput = ({ onChange, onAdd, value }) => {
+export const TaskInput = () => {
+  const { createToDo } = useTodoContext();
+  const [input, setInput] = useState("");
+
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      onAdd();
+      handleCreateToDo();
     }
   };
+
+  const handleCreateToDo = () => {
+    createToDo(input);
+    setInput("");
+  };
+
   return (
     <div className="container">
       <input
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
+        value={input}
+        onChange={(event) => setInput(event.target.value)}
         onKeyDown={handleKeyDown}
         className="task-input"
         type="text"
         placeholder="Add a task"
       />
-      <button onClick={() => onAdd()} className="task-input__button">
+      <button onClick={handleCreateToDo} className="task-input__button">
         Add
       </button>
     </div>
